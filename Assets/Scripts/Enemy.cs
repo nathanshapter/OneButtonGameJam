@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
 
     bool damagedPlayer = false;
 
+    public int coinGiven;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
