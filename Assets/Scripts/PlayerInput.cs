@@ -5,6 +5,7 @@ public class PlayerInput : MonoBehaviour
    [SerializeField] CircularPlatform cp;
     [SerializeField] SpriteRenderer shieldSprite;
 
+
     private void Start()
     {
         shieldSprite = cp.GetComponent<SpriteRenderer>();
@@ -13,6 +14,7 @@ public class PlayerInput : MonoBehaviour
     void Update()
     {
         SpaceIncreaseSpeed();
+        
     }
 
     void SpaceIncreaseSpeed() // this handles speeding up the shield

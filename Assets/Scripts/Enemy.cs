@@ -35,8 +35,23 @@ public class Enemy : MonoBehaviour
     {
         MoveEnemyTowardsPlayer();
         DisplayDistanceToTarget();
+        if(!isDead)
+            FlipOnX();
+
     }
 
+
+    private void FlipOnX()
+    {
+        Vector2 direction = player.transform.position - transform.position;
+
+        if (((direction.x > 0) && transform.localScale.x < 0) || (direction.x < 0 && transform.localScale.x > 0))
+        {
+            Vector3 newScale = transform.localScale;
+            newScale.x *= -1;
+            transform.localScale = newScale;
+        }
+    }
     private void MoveEnemyTowardsPlayer()
     {
         if (isDead)
@@ -58,7 +73,7 @@ public class Enemy : MonoBehaviour
         {
             Vector2 goToDeadPosition = Vector2.MoveTowards(this.transform.position, deadPosition.transform.position, movementSpeed  * Time.deltaTime);
             transform.position = goToDeadPosition;
-            rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+           // rb.constraints = RigidbodyConstraints2D.FreezePositionY;
             
         }
        
