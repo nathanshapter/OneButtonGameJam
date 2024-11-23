@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
 
     public int damage;
 
+    
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -77,8 +79,9 @@ public class Enemy : MonoBehaviour
         {
             Vector2 goToDeadPosition = Vector2.MoveTowards(this.transform.position, deadPosition.transform.position, movementSpeed  * Time.deltaTime);
             transform.position = goToDeadPosition;
-           // rb.constraints = RigidbodyConstraints2D.FreezePositionY;
-            
+            spawner.enemiesList.Remove(this);
+            // rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+
         }
        
     }
@@ -88,6 +91,7 @@ public class Enemy : MonoBehaviour
     {
         anim.SetBool("isDead", true);
         isDead = true;
+        spawner.enemiesList.Remove(this);
     }
 
     private void DisplayDistanceToTarget()

@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
   [SerializeField]  Enemy[] enemies;
 
-   List <Enemy> enemiesList;
+  public List <Enemy> enemiesList;
 
     [SerializeField] float timeInBetweenSpawn = 1.5f;
 
@@ -38,7 +38,9 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 0; i < fishToSpawn; i++)
         {
-            Instantiate(enemies[ChooseEnemyToSpawn()], spawnPoints[ChooseSpawnPoint()].transform);
+           Enemy newEnemy =  Instantiate(enemies[ChooseEnemyToSpawn()], spawnPoints[ChooseSpawnPoint()].transform);
+
+            enemiesList.Add(newEnemy);
 
             yield return new WaitForSeconds(timeInBetweenSpawn);
         }
@@ -46,10 +48,31 @@ public class EnemySpawner : MonoBehaviour
 
         yield return new WaitForSeconds(3);
 
+        StartCoroutine(checkForEndOfLevel());
+
+       
         
 
-        print("next level?");
+        
     }
+
+    
+
+    IEnumerator checkForEndOfLevel()
+    {
+        yield return new WaitForSeconds(3);
+     
+        if (enemiesList.Count == 0)
+        {
+            print("level has ended");
+        }
+        else
+        {
+            StartCoroutine(checkForEndOfLevel());
+            print("level has not yet ended, enemies are alive");
+        }
+    }
+
     int ChooseSpawnPoint()
     {
         int poop = Random.Range(0, spawnPoints.Length);
