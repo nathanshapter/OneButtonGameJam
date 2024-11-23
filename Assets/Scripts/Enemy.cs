@@ -107,6 +107,8 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Shield"))
         {
             print("hello shield ");
+
+           
         }
     }
 }
