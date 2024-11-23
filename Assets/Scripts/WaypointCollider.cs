@@ -124,9 +124,13 @@ public class WaypointCollider : MonoBehaviour
                     input.angularSpeed *= 1.01f;
                     wallet.cash -= shieldSpeedPrice;
                 }
-                if (ID == 3)
+                if (ID == 3) // dome size
                 {
 
+                }
+                if(ID == 4) // next level
+                {
+                    print("next level ig");
                 }
 
 

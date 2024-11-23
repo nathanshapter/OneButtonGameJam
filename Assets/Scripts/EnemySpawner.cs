@@ -19,8 +19,11 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] float timeInBetweenSpawn = 1.5f;
 
+    GameManager gameManager;
+
     private void Start()
     {
+        gameManager = FindFirstObjectByType<GameManager>();
         player = FindFirstObjectByType<PlayerInput>();
         StartCoroutine(SpawnFish());
     }
@@ -65,6 +68,7 @@ public class EnemySpawner : MonoBehaviour
         if (enemiesList.Count == 0)
         {
             print("level has ended");
+            gameManager.EnablePostLevel(true);
         }
         else
         {
