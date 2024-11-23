@@ -4,18 +4,25 @@ using UnityEngine.UI;
 
 public class CanvasScript : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI healthText, domeText;
+    [SerializeField] TextMeshProUGUI healthText, domeText, cashText;
 
     [SerializeField] GameObject duringGameText, postLevelText, postGameText, preGameText, canvasPlayer;
 
 
    [SerializeField] Button retryButton, retry1Button;
 
-   
+    PlayerWallet wallet;
+    private void Start()
+    {
+        wallet = FindFirstObjectByType<PlayerWallet>();
+    }
+
+    private void Update()
+    {
+        cashText.text = ($"Cash: {wallet.cash}");
+    }
 
 
-
- 
 
     public void UpdateText(int health, float dome)
     {

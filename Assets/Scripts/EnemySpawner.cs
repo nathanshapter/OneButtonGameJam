@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class EnemySpawner : MonoBehaviour
  
 
   [SerializeField]  Enemy[] enemies;
+
+   List <Enemy> enemiesList;
 
     [SerializeField] float timeInBetweenSpawn = 1.5f;
 
@@ -36,8 +39,14 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < fishToSpawn; i++)
         {
             Instantiate(enemies[ChooseEnemyToSpawn()], spawnPoints[ChooseSpawnPoint()].transform);
+
             yield return new WaitForSeconds(timeInBetweenSpawn);
         }
+
+
+        yield return new WaitForSeconds(3);
+
+        
 
         print("next level?");
     }

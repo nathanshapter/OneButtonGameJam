@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-   [SerializeField] CircularPlatform cp;
-    [SerializeField] SpriteRenderer shieldSprite;
+   [SerializeField] CircularPlatform cp, cp2;
+    [SerializeField] SpriteRenderer shieldSprite, shieldSprite2;
 
-
+    public float angularSpeed = 1.5f;
     private void Start()
     {
         shieldSprite = cp.GetComponent<SpriteRenderer>();
@@ -21,14 +21,18 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.H))
         {
-            cp.angularSpeed = 3;
+            cp.angularSpeed = angularSpeed *2;
             shieldSprite.color = Color.yellow;
-            
+
+           
+
         }
         else 
         { 
-            cp.angularSpeed = 1.5f; 
+            cp.angularSpeed = angularSpeed; 
             shieldSprite.color = Color.white;
+
+            
         }
     }
 }

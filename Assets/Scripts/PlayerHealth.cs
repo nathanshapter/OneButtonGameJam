@@ -25,17 +25,23 @@ public class PlayerHealth : MonoBehaviour
         TakeDamage(enemyCollision.damage);
     }
 
-    void TakeDamage(int damage)
+   public void TakeDamage(int damage)
     {
         health -= damage;
-        StartCoroutine(PlayerAnim.AnimDamage());
-        canvasScript.UpdateText(health, domeHealth);
 
-
-        if (CheckHealth())
+        if (damage < 0) 
         {
-            Die();
+            StartCoroutine(PlayerAnim.AnimDamage());
+            
+
+
+            if (CheckHealth())
+            {
+                Die();
+            }
         }
+
+        canvasScript.UpdateText(health, domeHealth);
     }
 
 
