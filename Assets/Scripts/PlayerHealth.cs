@@ -2,15 +2,33 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int health = 30;
+    public float domeHealth = 100;
+    PlayerAnim PlayerAnim;
+
+    CanvasScript canvasScript;
+
+
+    private void Start()
     {
-        
+        PlayerAnim = GetComponent<PlayerAnim>();
+        canvasScript = FindFirstObjectByType<CanvasScript>();
+        canvasScript.UpdateText(health, domeHealth);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        print("henlooooooo");
+
+        Enemy enemyCollision = collision.gameObject.GetComponent<Enemy>();
+
+        TakeDamage(enemyCollision.damage);
+    }
+
+    void TakeDamage(int damage)
+    {
+        health -= damage;
+        StartCoroutine(PlayerAnim.AnimDamage());
+        canvasScript.UpdateText(health, domeHealth);
     }
 }

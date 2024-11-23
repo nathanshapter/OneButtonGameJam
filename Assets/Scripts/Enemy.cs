@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour
 
     public int coinGiven;
 
+    public int damage;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -96,7 +98,7 @@ public class Enemy : MonoBehaviour
 
         if (distanceToTarget <= distanceToDMG && !isDead)
         {
-            print("player damaged");
+           // print("player damaged");
             damagedPlayer = true;
 
         }
