@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("henlooooooo");
+     //   print("henlooooooo");
 
         Enemy enemyCollision = collision.gameObject.GetComponent<Enemy>();
 
@@ -30,5 +30,26 @@ public class PlayerHealth : MonoBehaviour
         health -= damage;
         StartCoroutine(PlayerAnim.AnimDamage());
         canvasScript.UpdateText(health, domeHealth);
+
+
+        if (CheckHealth())
+        {
+            Die();
+        }
+    }
+
+
+    bool CheckHealth()
+    {
+        if(health <= 0)
+        {
+            return false;
+        }       
+        return true;
+    }
+
+    void Die()
+    {
+        
     }
 }

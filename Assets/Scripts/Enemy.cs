@@ -108,7 +108,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Shield"))
         {
-            print("hello shield ");
+          //  print("hello shield ");
 
            
         }

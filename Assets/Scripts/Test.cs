@@ -11,7 +11,7 @@ public class Test : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("hello");
+      //  print("hello");
 
         if (collision.gameObject.CompareTag("Enemy"))
         {

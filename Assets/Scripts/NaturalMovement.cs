@@ -7,6 +7,8 @@ public class NaturalMovement : MonoBehaviour
     [SerializeField] float forwardSpeed = 2f; // The speed of the forward movement
     private Vector3 startPosition;
 
+
+    [SerializeField] bool isCanvasPlayer = false;
     private void Start()
     {
         // Record the initial position of the object
