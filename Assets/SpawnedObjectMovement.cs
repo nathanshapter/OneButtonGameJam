@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SpawnedObjectMovement : MonoBehaviour
@@ -8,7 +9,7 @@ public class SpawnedObjectMovement : MonoBehaviour
 
     private void Start()
     {
-  
+      StartCoroutine(DestroySelf());
     }
     void Update()
     {
@@ -23,5 +24,13 @@ public class SpawnedObjectMovement : MonoBehaviour
        
 
         this.transform.position = newPos;
+
+      
+    }
+
+    IEnumerator DestroySelf()
+    {
+        yield return new WaitForSeconds(20);
+        Destroy(this.gameObject);
     }
 }

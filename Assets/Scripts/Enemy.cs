@@ -84,7 +84,7 @@ public class Enemy : MonoBehaviour
             transform.position = goToDeadPosition;
             spawner.enemiesList.Remove(this);
             // rb.constraints = RigidbodyConstraints2D.FreezePositionY;
-
+            StartCoroutine(DestroySelf());
         }
        
     }
@@ -104,7 +104,7 @@ public class Enemy : MonoBehaviour
    IEnumerator DestroySelf()
     {
         yield return new WaitForSeconds(4);
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 
     private void DisplayDistanceToTarget()

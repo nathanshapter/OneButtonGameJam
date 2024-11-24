@@ -1,4 +1,7 @@
+
+using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ObjectSpawner : MonoBehaviour
 {
@@ -10,11 +13,44 @@ public class ObjectSpawner : MonoBehaviour
 
     [SerializeField] GameObject coralSpawn;
 
+  
+
+
+
     private void Start()
     {
-       GameObject newObject =  Instantiate(corals[7], coralSpawn.transform);
+       
 
-        newObject.AddComponent<SpawnedObjectMovement>();
+      StartCoroutine(SpawnItems());
        
     }
+
+
+    private IEnumerator SpawnItems()
+    {
+        yield return new WaitForSeconds(Random.Range(0, 5));
+       
+
+        GameObject newWeed = Instantiate(seaWeed[Random.Range(0,seaWeed.Length)], coralSpawn.transform);
+        newWeed.AddComponent<SpawnedObjectMovement>();
+    
+
+        yield return new WaitForSeconds(Random.Range(0, 3.5f));
+
+        GameObject newCoral = Instantiate(corals[Random.Range(0, corals.Length)], coralSpawn.transform);
+        newCoral.AddComponent<SpawnedObjectMovement>();
+
+        yield return new WaitForSeconds(Random.Range(0, 3.5f));
+
+        if (Random.Range(0,100) > 50)
+        {
+            GameObject newShip = Instantiate(decor[Random.Range(0, decor.Length)], coralSpawn.transform);
+            newShip.AddComponent<SpawnedObjectMovement>();
+           
+        }
+        StartCoroutine(SpawnItems());
+    }
+
+ 
+
 }
