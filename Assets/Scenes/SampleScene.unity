@@ -8246,7 +8246,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: eec889df5a5381b44a636bee6ea6566d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.8572221, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8921,6 +8921,7 @@ GameObject:
   - component: {fileID: 1918327332}
   - component: {fileID: 1918327336}
   - component: {fileID: 1918327337}
+  - component: {fileID: 1918327338}
   m_Layer: 0
   m_Name: WorkingShield
   m_TagString: Shield
@@ -8935,7 +8936,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918327331}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -9018,8 +9019,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: eec889df5a5381b44a636bee6ea6566d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -2413806693520163455, guid: bccfb7a2ece6d964e84c311675a834b2, type: 3}
+  m_Color: {r: 0.31132066, g: 0.99367887, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9039,7 +9040,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.23, y: 2.09, z: 0}
-  m_LocalScale: {x: 1.2857599, y: 0.23452266, z: 1.623588}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -9076,6 +9077,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2955f71c0b7837941ae9462a2b7620ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &1918327338
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918327331}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &1948441791
 GameObject:
   m_ObjectHideFlags: 0
@@ -9794,7 +9831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2652514981715922472, guid: b5317aa9d4ffb1143b9196f31c518d45, type: 3}
       propertyPath: cash
-      value: 50
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 2978901319459908360, guid: b5317aa9d4ffb1143b9196f31c518d45, type: 3}
       propertyPath: cp
@@ -9814,7 +9851,7 @@ PrefabInstance:
       objectReference: {fileID: 1616650410}
     - target: {fileID: 6438609437059212096, guid: b5317aa9d4ffb1143b9196f31c518d45, type: 3}
       propertyPath: health
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8686649387234302181, guid: b5317aa9d4ffb1143b9196f31c518d45, type: 3}
       propertyPath: m_Name

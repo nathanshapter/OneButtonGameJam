@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -35,27 +36,18 @@ public class PlayerHealth : MonoBehaviour
             
 
 
-            if (CheckHealth())
-            {
-                Die();
-            }
+            
         }
-
+        if (health < 0) { Die(); }
         canvasScript.UpdateText(health, domeHealth);
     }
 
 
-    bool CheckHealth()
-    {
-        if(health <= 0)
-        {
-            return false;
-        }       
-        return true;
-    }
+  
 
     void Die()
     {
-        
+        print("die check");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

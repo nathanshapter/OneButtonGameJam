@@ -30,7 +30,7 @@ public class PlayerInput : MonoBehaviour
         else 
         { 
             cp.angularSpeed = angularSpeed; 
-            shieldSprite.color = Color.white;
+            shieldSprite.color = Color.cyan;
 
             
         }
