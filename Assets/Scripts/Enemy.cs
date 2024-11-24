@@ -1,5 +1,6 @@
+using DG.Tweening;
+using System.Collections;
 using UnityEngine;
-
 public class Enemy : MonoBehaviour
 {
     
@@ -24,7 +25,7 @@ public class Enemy : MonoBehaviour
 
     public int damage;
 
-    
+   [SerializeField] SpriteRenderer spriteRenderer;
 
     private void Start()
     {
@@ -34,6 +35,8 @@ public class Enemy : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         deadPosition = spawner.deadPosition;
         circleCollider = GetComponent<CircleCollider2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+       
     }
 
 
@@ -92,6 +95,16 @@ public class Enemy : MonoBehaviour
         anim.SetBool("isDead", true);
         isDead = true;
         spawner.enemiesList.Remove(this);
+        StartCoroutine(DestroySelf());
+        spriteRenderer.DOFade(0, 3);
+       
+        
+    }
+
+   IEnumerator DestroySelf()
+    {
+        yield return new WaitForSeconds(4);
+        Destroy(this);
     }
 
     private void DisplayDistanceToTarget()
