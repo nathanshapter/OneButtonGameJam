@@ -83,9 +83,9 @@ public class WaypointCollider : MonoBehaviour
 
                         
                         secondShield.gameObject.transform.localScale = new Vector3(currentX * 1.1f, .234f);
-                        if(currentX > 2.268975f)
+                        if(currentX > 1.28576f)
                         {
-                            currentX = 2.268975f;
+                            currentX = 1.28576f;
                             secondShield.gameObject.transform.localScale = new Vector3(currentX, .234f);
 
                         }
