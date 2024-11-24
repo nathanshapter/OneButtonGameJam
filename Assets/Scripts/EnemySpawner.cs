@@ -19,27 +19,29 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] float timeInBetweenSpawn = 1.5f;
 
-    
+   [SerializeField] GameManager gameManager;
+
+    [SerializeField] int currentLevel = 1;
 
     private void Start()
     {
      
         player = FindFirstObjectByType<PlayerInput>();
-        StartCoroutine(SpawnFish());
+        StartCoroutine(SpawnFish(fishToSpawn));
     }
 
-  IEnumerator SpawnFish()
+ public IEnumerator SpawnFish(int o)
     {
         
 
-        if(fishToSpawn == 0)
+        if(o == 0)
         {
-            // next level
+            currentLevel++;
             yield break;
         }
 
 
-        for (int i = 0; i < fishToSpawn; i++)
+        for (int i = 0; i < o; i++)
         {
            Enemy newEnemy =  Instantiate(enemies[ChooseEnemyToSpawn()], spawnPoints[ChooseSpawnPoint()].transform);
 
@@ -68,7 +70,7 @@ public class EnemySpawner : MonoBehaviour
         if (enemiesList.Count == 0)
         {
             print("level has ended");
-           // gameManager.EnablePostLevel(true);
+            gameManager.DisableGameObjects(gameManager.postLevel, true);
         }
         else
         {

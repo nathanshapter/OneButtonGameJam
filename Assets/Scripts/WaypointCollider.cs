@@ -29,6 +29,11 @@ public class WaypointCollider : MonoBehaviour
 
     [SerializeField] GameObject secondShield;
 
+
+    [SerializeField] GameManager gameManager;
+
+   [SerializeField] EnemySpawner enemySpawner;
+
     private void Start()
     {
         pos = FindFirstObjectByType<PlayerOptionSelector>();
@@ -131,6 +136,12 @@ public class WaypointCollider : MonoBehaviour
                 if(ID == 4) // next level
                 {
                     print("next level ig");
+                    gameManager.DisableGameObjects(gameManager.postLevel, false);
+
+                   
+
+                    
+
                 }
 
 
