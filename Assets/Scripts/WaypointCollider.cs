@@ -65,7 +65,7 @@ public class WaypointCollider : MonoBehaviour
 
     private void Update()
     {
-        if (SliderIsConnected()) 
+        if (SliderIsConnected() && gameManager.isPostGame) 
         {
             relevantText.color = Color.red;
 

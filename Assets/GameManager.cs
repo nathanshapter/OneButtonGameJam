@@ -7,13 +7,18 @@ public class GameManager : MonoBehaviour
 
    [SerializeField] EnemySpawner enemySpawner;
     [SerializeField] GameObject circuitSystem;
+    [SerializeField] SpriteRenderer upgraderSprite;
 
     bool firstSpawn = false;
+
+   public bool isPostGame;
 
     private void Start()
     {
         DisableGameObjects(postLevel, false);
         enemySpawner = FindFirstObjectByType<EnemySpawner>();
+        upgraderSprite.enabled = false;
+        isPostGame = false;
     }
 
     public void DisableGameObjects(GameObject[] objects, bool enabled)
@@ -22,8 +27,18 @@ public class GameManager : MonoBehaviour
         {
             objects[i].gameObject.SetActive(enabled);
         }
-        if (firstSpawn && !enabled) { StartCoroutine(enemySpawner.SpawnFish(25)); }
+        isPostGame = enabled;
+        upgraderSprite.enabled=enabled;
+        if (firstSpawn && !enabled) { StartCoroutine(enemySpawner.SpawnFish(CalculateSpawnAmount())); }
         else { firstSpawn = true; }
         
+    }
+
+    int CalculateSpawnAmount()
+    {
+       int enemyAmount =  enemySpawner.currentLevel *5;
+       
+
+        return enemyAmount;
     }
 }

@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
    [SerializeField] GameManager gameManager;
 
-    [SerializeField] int currentLevel = 1;
+    public int currentLevel = 0;
 
     private void Start()
     {
@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
 
  public IEnumerator SpawnFish(int o)
     {
-        
+        currentLevel++;
 
         if(o == 0)
         {
