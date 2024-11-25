@@ -27,7 +27,7 @@ public class CanvasScript : MonoBehaviour
     public void UpdateText(int health, float dome)
     {
         healthText.text = ($"Health: {health}");
-        domeText.text = ($"Dome: {dome}");
+ 
     }
 
     void SetAllToFalse()

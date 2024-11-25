@@ -146,6 +146,14 @@ public class CircuitPlatform : MonoBehaviour
         }
     }
 
+    public float CalculateWaypointTransformX()
+    {
+        float toReturn = waypoints[index].transform.position.x;
+
+        return toReturn;
+
+
+    }
 
     IEnumerator IncreaseIndex()
     {

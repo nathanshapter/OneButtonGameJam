@@ -58,7 +58,7 @@ public class WaypointCollider : MonoBehaviour
         }
         if (ID == 3)
         {
-            relevantText.text = $"Dome Size C: {domeSizePrice}";
+           
         }
 
     }
@@ -159,8 +159,16 @@ public class WaypointCollider : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         pos.currentUpgradeID = -1;
-        relevantText.color = Color.white;
+        if (gameManager.isPostGame) 
+        {
+            pos.currentUpgradeID = -1;
+            relevantText.color = Color.white;
+        }
+      
+       
     }
+
+   
 
     bool SliderIsConnected()
     {
