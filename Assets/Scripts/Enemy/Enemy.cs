@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 public class Enemy : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] float distanceToDMG = 1.39f;
 
-    bool damagedPlayer = false;
+   [SerializeField] bool damagedPlayer = false;
 
     public int coinGiven;
 
@@ -52,6 +53,9 @@ public class Enemy : MonoBehaviour
 
     private void FlipOnX()
     {
+
+      
+
         Vector2 direction = player.transform.position - transform.position;
 
         if (((direction.x > 0) && transform.localScale.x < 0) || (direction.x < 0 && transform.localScale.x > 0))
@@ -67,6 +71,9 @@ public class Enemy : MonoBehaviour
         {
             Vector2 goToDeadPosition = Vector2.MoveTowards(this.transform.position, deadPosition.transform.position, movementSpeed / 2 * Time.deltaTime);
             transform.position = goToDeadPosition;
+
+            
+
             rb.constraints = RigidbodyConstraints2D.FreezePositionY;
             circleCollider.enabled = false;
             return; 
@@ -103,7 +110,7 @@ public class Enemy : MonoBehaviour
 
    IEnumerator DestroySelf()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(10);
         Destroy(this.gameObject);
     }
 

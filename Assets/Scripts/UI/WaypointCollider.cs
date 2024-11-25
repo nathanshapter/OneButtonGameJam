@@ -73,7 +73,7 @@ public class WaypointCollider : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.H))
             {
-                print($"upgrade the {name}");
+                print($"{name} Button Pressed");
 
 
                 if (ID == 0)
@@ -137,7 +137,7 @@ public class WaypointCollider : MonoBehaviour
                 }
                 if(ID == 4) // next level
                 {
-                    print("next level ig");
+                    print("Load next level.");
                     gameManager.DisableGameObjects(gameManager.postLevel, false);
 
                  

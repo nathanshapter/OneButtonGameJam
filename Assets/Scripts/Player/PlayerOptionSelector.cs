@@ -14,7 +14,7 @@ public class PlayerOptionSelector : MonoBehaviour
         {
             int i = collision.gameObject.GetComponent<WaypointCollider>().ID;
             currentUpgradeID = i;
-           
+            print(i);
         }
         
         

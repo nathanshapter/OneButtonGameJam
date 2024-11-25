@@ -69,13 +69,13 @@ public class EnemySpawner : MonoBehaviour
      
         if (enemiesList.Count == 0)
         {
-            print("level has ended");
+            print("The Level has ended.");
             gameManager.DisableGameObjects(gameManager.postLevel, true);
         }
         else
         {
             StartCoroutine(checkForEndOfLevel());
-            print("level has not yet ended, enemies are alive");
+            Debug.Log("Level has not yet ended because enemies are still alive.");
         }
     }
 
