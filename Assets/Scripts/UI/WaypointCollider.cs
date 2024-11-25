@@ -54,7 +54,7 @@ public class WaypointCollider : MonoBehaviour
         }
         if (ID == 2)
         {
-            relevantText.text = $"S Speed C: {shieldSpeedPrice}";
+            relevantText.text = $"Shield Speed C: {shieldSpeedPrice}";
         }
         if (ID == 3)
         {
@@ -115,7 +115,7 @@ public class WaypointCollider : MonoBehaviour
                         return;
                     }
                     
-                        health.TakeDamage(-15);
+                        health.TakeDamage(-30);
                         wallet.cash -= healthPrice;
                    
                     

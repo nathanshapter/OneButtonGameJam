@@ -51,8 +51,10 @@ MonoBehaviour:
   movementSpeed: 1
   isDead: 0
   distanceToDMG: 1.39
-  coinGiven: 2
+  damagedPlayer: 0
+  coinGiven: 4
   damage: 3
+  spriteRenderer: {fileID: 0}
 --- !u!58 &4553152179723293491
 CircleCollider2D:
   m_ObjectHideFlags: 0
