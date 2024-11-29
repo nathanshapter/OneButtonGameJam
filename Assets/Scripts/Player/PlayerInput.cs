@@ -19,7 +19,7 @@ public class PlayerInput : MonoBehaviour
 
     void SpaceIncreaseSpeed() // this handles speeding up the shield
     {
-        if (Input.GetKey(KeyCode.H))
+        if (Input.anyKey)
         {
             cp.angularSpeed = angularSpeed *2;
             shieldSprite.color = Color.yellow;

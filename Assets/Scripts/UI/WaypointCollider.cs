@@ -79,7 +79,7 @@ public class WaypointCollider : MonoBehaviour
         {
             relevantText.color = Color.red;
 
-            if (Input.GetKeyDown(KeyCode.H))
+            if (Input.anyKey)
             {
                 print($"{name} Button Pressed");
 
@@ -98,9 +98,9 @@ public class WaypointCollider : MonoBehaviour
 
                         
                         secondShield.gameObject.transform.localScale = new Vector3(newScale * 1.1f, newScale * 1.1f);
-                        if(newScale > 1.28576f)
+                        if(newScale > shieldScaleLimit)
                         {
-                            newScale = 1.28576f;
+                            newScale = shieldScaleLimit;
                             secondShield.gameObject.transform.localScale = new Vector3(newScale, newScale);
 
                         }

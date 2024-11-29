@@ -48,12 +48,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  movementSpeed: 1
+  movementSpeed: 1.5
   isDead: 0
   distanceToDMG: 1.39
   damagedPlayer: 0
-  coinGiven: 4
-  damage: 3
+  coinGiven: 7
+  damage: 2
   spriteRenderer: {fileID: 0}
 --- !u!58 &4553152179723293491
 CircleCollider2D:

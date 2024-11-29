@@ -30,15 +30,11 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= damage;
 
-        if (damage < 0) 
-        {
+       
             StartCoroutine(PlayerAnim.AnimDamage());
             
 
-
-            
-        }
-        if (health < 0) { Die(); }
+        if (health <= 0) { Die(); }
         canvasScript.UpdateText(health, domeHealth);
     }
 

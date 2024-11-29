@@ -1,15 +1,17 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
 public class SpawnedObjectMovement : MonoBehaviour
 {
-  
 
+    SpriteRenderer sprite;
 
 
     private void Start()
     {
       StartCoroutine(DestroySelf());
+        sprite = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
@@ -31,6 +33,9 @@ public class SpawnedObjectMovement : MonoBehaviour
     IEnumerator DestroySelf()
     {
         yield return new WaitForSeconds(20);
+        sprite.DOFade(0, 3);
+
+        yield return new WaitForSeconds(3);
         Destroy(this.gameObject);
     }
 }
