@@ -39,7 +39,7 @@ public class WaypointCollider : MonoBehaviour
 
     [SerializeField] SpriteRenderer secondShieldSprite;
     [SerializeField] CircleCollider2D circleCollider;
-    bool purchasedShield = false;
+   public bool purchasedShield = false;
     
 
     private void Start()

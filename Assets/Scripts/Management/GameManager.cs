@@ -7,11 +7,12 @@ public class GameManager : MonoBehaviour
 
    [SerializeField] EnemySpawner enemySpawner;
     [SerializeField] GameObject circuitSystem;
-    [SerializeField] SpriteRenderer upgraderSprite;
+    [SerializeField] SpriteRenderer upgraderSprite, playerSprite, shieldSprite, shield2Sprite;
 
     bool firstSpawn = false;
 
    public bool isPostGame;
+  [SerializeField]  WaypointCollider waypointCollider;
 
     private void Start()
     {
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
         enemySpawner = FindFirstObjectByType<EnemySpawner>();
         upgraderSprite.enabled = false;
         isPostGame = false;
+        
+        
     }
 
     public void DisableGameObjects(GameObject[] objects, bool enabled)
@@ -29,6 +32,11 @@ public class GameManager : MonoBehaviour
         }
         isPostGame = enabled;
         upgraderSprite.enabled=enabled;
+        playerSprite.enabled=!enabled;
+        shieldSprite.enabled=!enabled;
+        if(waypointCollider.purchasedShield)
+            shield2Sprite.enabled = !enabled;
+
         if (firstSpawn && !enabled) { StartCoroutine(enemySpawner.SpawnFish(CalculateSpawnAmount())); }
         else { firstSpawn = true; }
         
