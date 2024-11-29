@@ -6,36 +6,24 @@ public class EnemySpawner : MonoBehaviour
 {
     public PlayerInput player;
     public GameObject deadPosition;
-    [SerializeField] GameObject spawnAreaFront, spawnAreaBack;
 
     [SerializeField] GameObject[] spawnPoints;
-
-    [SerializeField] int fishToSpawn = 10;
- 
-
+    [SerializeField] int fishToSpawn = 10; 
   [SerializeField]  Enemy[] enemies;
-
   public List <Enemy> enemiesList;
-
     [SerializeField] float timeInBetweenSpawn = 1.5f;
-
    [SerializeField] GameManager gameManager;
-
     public int currentLevel = 0;
-
     [SerializeField]    LevelSettings[] levelSettings;
-
     [SerializeField] private int swordFishToSpawn;
     [SerializeField] private int turtlesToSpawn;
     [SerializeField] private int jellyFishToSpawn;
     [SerializeField] private int octopusToSpawn;
     [SerializeField] private int eelToSpawn;
     [SerializeField] private int sharkToSpawn;
-
     [SerializeField] Enemy swordFishGO, jellyFishGo, turtleGo;
     private void Start()
-    {
-     
+    {     
         player = FindFirstObjectByType<PlayerInput>();
         StartCoroutine(SpawnFish(fishToSpawn));
     }
@@ -43,6 +31,7 @@ public class EnemySpawner : MonoBehaviour
     void SetValuesOfSpawn()
     {
         // -1 to get position of array
+        // not being used in vertical slice
         swordFishToSpawn = levelSettings[currentLevel -1].SwordFishToSpawn;
         turtlesToSpawn = levelSettings[currentLevel -1].TurtlesToSpawn;
         jellyFishToSpawn = levelSettings[currentLevel - 1].JellyFishToSpawn;
@@ -52,6 +41,8 @@ public class EnemySpawner : MonoBehaviour
 
  public IEnumerator SpawnFish(int o)
     {
+        // increases the level
+        //
         currentLevel++;
 
         print($"current leve{currentLevel}");
@@ -79,7 +70,7 @@ public class EnemySpawner : MonoBehaviour
             yield break;
         }
 
-        
+        // spawns the enemies randomly
         for (int i = 0; i < o; i++)
         {
            Enemy newEnemy =  Instantiate(enemies[ChooseEnemyToSpawn()], spawnPoints[ChooseSpawnPoint()].transform);
@@ -104,6 +95,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator checkForEndOfLevel()
     {
+        // if there are no enemies left end the level, if there are, wait and try again
         yield return new WaitForSeconds(3);
      
         if (enemiesList.Count == 0)
@@ -120,12 +112,13 @@ public class EnemySpawner : MonoBehaviour
 
     int ChooseSpawnPoint()
     {
+        // there are 10 or so spawn points, choose a random one
         int poop = Random.Range(0, spawnPoints.Length);
         return poop;
     }
     int ChooseEnemyToSpawn()
     {
-
+        // there are  or so enemies, choose a random one
 
         int pee = Random.Range(0, enemies.Length );
         return pee;

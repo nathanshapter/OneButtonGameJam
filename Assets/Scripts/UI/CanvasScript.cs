@@ -4,12 +4,13 @@ using UnityEngine.UI;
 
 public class CanvasScript : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI healthText, domeText, cashText;
+    [SerializeField] TextMeshProUGUI healthText, domeText, cashText, levelText;
 
     [SerializeField] GameObject duringGameText, postLevelText, postGameText, preGameText, canvasPlayer;
 
 
    [SerializeField] Button retryButton, retry1Button;
+    [SerializeField] EnemySpawner spawner;
 
     PlayerWallet wallet;
     private void Start()
@@ -20,6 +21,7 @@ public class CanvasScript : MonoBehaviour
     private void Update()
     {
         cashText.text = ($"Cash: {wallet.cash}");
+        levelText.text = ($"Current Level: {spawner.currentLevel}");
     }
 
 

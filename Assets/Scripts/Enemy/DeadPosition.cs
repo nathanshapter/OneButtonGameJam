@@ -2,15 +2,5 @@ using UnityEngine;
 
 public class DeadPosition : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   // this script is used as a placeholder so enemies know where to go upon death
 }

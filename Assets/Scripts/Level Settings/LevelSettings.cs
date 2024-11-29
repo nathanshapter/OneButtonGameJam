@@ -18,4 +18,6 @@ public class LevelSettings : ScriptableObject
     public int OctopusToSpawn => octopusToSpawn;
     public int EelToSpawn => eelToSpawn;
     public int SharkToSpawn => sharkToSpawn;
+
+    // not being used in vertical slice
 }

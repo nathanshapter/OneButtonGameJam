@@ -9,25 +9,15 @@ public class Enemy : MonoBehaviour
     EnemySpawner spawner;
     [SerializeField] float movementSpeed = 20;
     Animator anim;
-
     GameObject deadPosition;
-
    [SerializeField] bool isDead = false;
-
     Rigidbody2D rb;
-
     CircleCollider2D circleCollider;
-
     [SerializeField] float distanceToDMG = 1.39f;
-
    [SerializeField] bool damagedPlayer = false;
-
     public int coinGiven;
-
     public int damage;
-
    [SerializeField] SpriteRenderer spriteRenderer;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -52,10 +42,8 @@ public class Enemy : MonoBehaviour
 
 
     private void FlipOnX()
-    {
-
-      
-
+    {      
+        // controls direction of x
         Vector2 direction = player.transform.position - transform.position;
 
         if (((direction.x > 0) && transform.localScale.x < 0) || (direction.x < 0 && transform.localScale.x > 0))
@@ -67,8 +55,9 @@ public class Enemy : MonoBehaviour
     }
     private void MoveEnemyTowardsPlayer()
     {
-        if (isDead)
+        if (isDead) // go to the end position bottom left of screen
         {
+
             Vector2 goToDeadPosition = Vector2.MoveTowards(this.transform.position, deadPosition.transform.position, movementSpeed / 2 * Time.deltaTime);
             transform.position = goToDeadPosition;
 
@@ -80,7 +69,7 @@ public class Enemy : MonoBehaviour
         }
         // calculate new position to go to
 
-        if (!damagedPlayer) 
+        if (!damagedPlayer) // go to player
         {
             Vector2 newPosition = Vector2.MoveTowards(this.transform.position, player.transform.position, movementSpeed * Time.deltaTime);
             transform.position = newPosition;
@@ -108,14 +97,15 @@ public class Enemy : MonoBehaviour
         
     }
 
-   IEnumerator DestroySelf()
+   IEnumerator DestroySelf() // need this in case takes too long for enemy to get to dead position
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(7);
         Destroy(this.gameObject);
     }
 
     private void DisplayDistanceToTarget()
     {
+        // method has no use at the moment, may for future
         // Calculate the distance between the enemy and the player
         float distanceToTarget = Vector2.Distance(transform.position, player.transform.position);
         
@@ -128,13 +118,5 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Shield"))
-        {
-          //  print("hello shield ");
 
-           
-        }
-    }
 }
