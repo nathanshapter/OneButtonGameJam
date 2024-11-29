@@ -23,16 +23,20 @@ public class PlayerInput : MonoBehaviour
         {
             cp.angularSpeed = angularSpeed *2;
             shieldSprite.color = Color.yellow;
+            cp2.angularSpeed = angularSpeed * 2;
+            shieldSprite2.color = Color.yellow;
 
-           
+
 
         }
         else 
         { 
             cp.angularSpeed = angularSpeed; 
             shieldSprite.color = Color.cyan;
+            cp2.angularSpeed = angularSpeed;
+            shieldSprite2.color = Color.cyan;
 
-            
+
         }
     }
 }

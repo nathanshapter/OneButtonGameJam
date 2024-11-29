@@ -23,6 +23,16 @@ public class EnemySpawner : MonoBehaviour
 
     public int currentLevel = 0;
 
+    [SerializeField]    LevelSettings[] levelSettings;
+
+    [SerializeField] private int swordFishToSpawn;
+    [SerializeField] private int turtlesToSpawn;
+    [SerializeField] private int jellyFishToSpawn;
+    [SerializeField] private int octopusToSpawn;
+    [SerializeField] private int eelToSpawn;
+    [SerializeField] private int sharkToSpawn;
+
+    [SerializeField] Enemy swordFishGO, jellyFishGo, turtleGo;
     private void Start()
     {
      
@@ -30,9 +40,38 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnFish(fishToSpawn));
     }
 
+    void SetValuesOfSpawn()
+    {
+        // -1 to get position of array
+        swordFishToSpawn = levelSettings[currentLevel -1].SwordFishToSpawn;
+        turtlesToSpawn = levelSettings[currentLevel -1].TurtlesToSpawn;
+        jellyFishToSpawn = levelSettings[currentLevel - 1].JellyFishToSpawn;
+
+        
+    }
+
  public IEnumerator SpawnFish(int o)
     {
         currentLevel++;
+
+        print($"current leve{currentLevel}");
+
+        SetValuesOfSpawn();
+
+
+
+       /* for (int i = 0; i < swordFishToSpawn; i++)
+        {
+            print($"swordfish remaining {swordFishToSpawn}");
+            Enemy newSwordFish = Instantiate(swordFishGO, spawnPoints[ChooseSpawnPoint()].transform);
+
+            enemiesList.Add(newSwordFish);
+
+            print("spawned a swordFISH");
+
+            yield return new WaitForSeconds(timeInBetweenSpawn);
+        }*/
+
 
         if(o == 0)
         {
@@ -40,7 +79,7 @@ public class EnemySpawner : MonoBehaviour
             yield break;
         }
 
-
+        
         for (int i = 0; i < o; i++)
         {
            Enemy newEnemy =  Instantiate(enemies[ChooseEnemyToSpawn()], spawnPoints[ChooseSpawnPoint()].transform);
@@ -86,6 +125,8 @@ public class EnemySpawner : MonoBehaviour
     }
     int ChooseEnemyToSpawn()
     {
+
+
         int pee = Random.Range(0, enemies.Length );
         return pee;
     }

@@ -1406,6 +1406,21 @@ MonoBehaviour:
   timeInBetweenSpawn: 1.5
   gameManager: {fileID: 376920741}
   currentLevel: 0
+  levelSettings:
+  - {fileID: 11400000, guid: 5699bf4f3c76919458ea13907e01665f, type: 2}
+  - {fileID: 11400000, guid: 9782494b750c7ab458230dba3bd9c4a2, type: 2}
+  - {fileID: 11400000, guid: 8772af7a3ae24e74dada5929bb3c357b, type: 2}
+  - {fileID: 11400000, guid: 1cd6096f5ce369046aa938f2c61d9152, type: 2}
+  - {fileID: 11400000, guid: 1f64055057197b54bbf47bb9f62eebac, type: 2}
+  swordFishToSpawn: 0
+  turtlesToSpawn: 0
+  jellyFishToSpawn: 0
+  octopusToSpawn: 0
+  eelToSpawn: 0
+  sharkToSpawn: 0
+  swordFishGO: {fileID: 3653029116344056256, guid: c6df3de559f2c404497b36cbc675eb63, type: 3}
+  jellyFishGo: {fileID: 4508612393465657131, guid: 47a7f9a143c17b7469b2183af8710bd6, type: 3}
+  turtleGo: {fileID: 6000873172829937289, guid: e8a2de51487c79a4e8449673aa6e8eb8, type: 3}
 --- !u!4 &522951035
 Transform:
   m_ObjectHideFlags: 0

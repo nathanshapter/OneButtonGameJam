@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de06083b529e7c2458542aca33295a2d, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
-  swordFishToSpawn: 1
+  swordFishToSpawn: 10
   turtlesToSpawn: 2
   jellyFishToSpawn: 2
   octopusToSpawn: 0

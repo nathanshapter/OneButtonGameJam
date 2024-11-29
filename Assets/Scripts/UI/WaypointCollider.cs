@@ -36,15 +36,23 @@ public class WaypointCollider : MonoBehaviour
 
     [SerializeField] ObjectSpawner obs;
 
+    [SerializeField] float shieldScaleLimit = 1.77f;
+
+    [SerializeField] SpriteRenderer secondShieldSprite;
+    [SerializeField] CircleCollider2D circleCollider;
+    bool purchasedShield = false;
+    
+
     private void Start()
     {
         pos = FindFirstObjectByType<PlayerOptionSelector>();
         PlayerHealth health = FindFirstObjectByType<PlayerHealth>();
-        secondShield.gameObject.SetActive(false);   
+        secondShieldSprite.enabled = false;
+        circleCollider.enabled = false;
 
 
 
-        if(ID == 0)
+        if (ID == 0)
         {
             relevantText.text = $"2nd Shield C: {secondShieldPrice }";
         }
@@ -84,16 +92,16 @@ public class WaypointCollider : MonoBehaviour
                         return;
                     }
 
-                    if (secondShield.gameObject.activeSelf)
+                    if (purchasedShield)
                     {
-                        float currentX = secondShield.transform.localScale.x;
+                        float newScale = secondShield.transform.localScale.x;
 
                         
-                        secondShield.gameObject.transform.localScale = new Vector3(currentX * 1.1f, .234f);
-                        if(currentX > 1.28576f)
+                        secondShield.gameObject.transform.localScale = new Vector3(newScale * 1.1f, newScale * 1.1f);
+                        if(newScale > 1.28576f)
                         {
-                            currentX = 1.28576f;
-                            secondShield.gameObject.transform.localScale = new Vector3(currentX, .234f);
+                            newScale = 1.28576f;
+                            secondShield.gameObject.transform.localScale = new Vector3(newScale, newScale);
 
                         }
 
@@ -101,7 +109,8 @@ public class WaypointCollider : MonoBehaviour
                     }
                     else
                     {
-                        secondShield.gameObject.SetActive(true);
+                        secondShieldSprite.enabled = true;
+                        circleCollider.enabled = true;
                     }
                     
 
