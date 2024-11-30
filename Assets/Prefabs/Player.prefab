@@ -265,6 +265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77ab00d6eddc7c4fb23a94899c89a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  isSlider: 0
 --- !u!1 &8123191463233709313
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +366,7 @@ GameObject:
   - component: {fileID: 2978901319459908360}
   - component: {fileID: 3852135215665184956}
   - component: {fileID: 2652514981715922472}
+  - component: {fileID: -6719638980067833598}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -400,7 +403,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cp: {fileID: 0}
+  cp2: {fileID: 0}
   shieldSprite: {fileID: 0}
+  shieldSprite2: {fileID: 0}
+  angularSpeed: 1.5
 --- !u!114 &3852135215665184956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,6 +422,7 @@ MonoBehaviour:
   amplitude: 0.1
   speed: 4
   forwardSpeed: 0
+  isCanvasPlayer: 0
 --- !u!114 &2652514981715922472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,3 +436,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cash: 0
+--- !u!114 &-6719638980067833598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8686649387234302181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a660b63052b394a80a8af4a5408b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

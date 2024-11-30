@@ -18,6 +18,9 @@ public class Enemy : MonoBehaviour
     public int coinGiven;
     public int damage;
    [SerializeField] SpriteRenderer spriteRenderer;
+
+
+    public bool hitByShield = false;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,6 +36,8 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+     
+
         MoveEnemyTowardsPlayer();
         DisplayDistanceToTarget();
         if(!isDead)
@@ -76,6 +81,11 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            if (hitByShield)
+            {
+                return;
+            }
+
             Vector2 goToDeadPosition = Vector2.MoveTowards(this.transform.position, deadPosition.transform.position, movementSpeed  * Time.deltaTime);
             transform.position = goToDeadPosition;
             spawner.enemiesList.Remove(this);
